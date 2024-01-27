@@ -1,8 +1,9 @@
-import InfoSection from "@/app/components/info-section";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import InfoSection from "@/app/components/info-section";
 import Experience from "@/app/components/experience";
 import Projects from "@/app/components/projects";
-import LatestBlogs from "./components/latest-blogs";
+import LatestBlogs from "@/app/components/latest-blogs";
 
 export default function Home() {
   return (
