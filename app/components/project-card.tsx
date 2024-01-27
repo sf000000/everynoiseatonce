@@ -33,7 +33,7 @@ export default function ProjectCard({
             rel="noopener noreferrer"
             href={project.homepage}
           >
-            <p className="hover:underline text-sm font-normal">
+            <p className="hover:underline text-sm font-normal line-clamp-1">
               {project.homepage}
             </p>
           </Link>
