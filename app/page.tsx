@@ -20,9 +20,9 @@ export default function Home() {
             <TabsContent value="about">
               <div className="mt-4">
                 <p className="text-lg text-muted-foreground">
-                  Passionate about building things for the web. I'm a
+                  Passionate about building things for the web. I&apos;m a
                   self-taught developer who enjoys learning new things and
-                  solving problems. I'm currently working as a freelance
+                  solving problems. I&apos;m currently working as a freelance
                   developer.
                 </p>
               </div>
