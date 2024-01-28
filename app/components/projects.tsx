@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { ComponentProps, useEffect, useState } from "react";
 import axios from "axios";
-import ProjectCard from "./project-card";
+import { HoverEffect } from "@/components/card-hover-effect";
+import { cn } from "@/lib/utils";
 
 export interface Project {
   name: string;
@@ -11,8 +12,18 @@ export interface Project {
   homepage: string;
 }
 
-export default function Projects() {
+export default function Projects({
+  className,
+  ...props
+}: ComponentProps<"div">) {
   const [projects, setProjects] = useState<Project[] | undefined>(undefined);
+
+  const projectList =
+    projects?.map((project) => ({
+      title: project.name,
+      description: project.description,
+      link: project.html_url,
+    })) || [];
 
   useEffect(() => {
     async function fetchProjects() {
@@ -30,18 +41,12 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="mt-8">
+    <div {...props} className={cn("mt-8 w-full", className)}>
       <h1 className="font-medium mb-4 text-lg">Projects</h1>
       {projects === undefined ? (
         <p>Loading...</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-x-10">
-          {projects.map((project) => (
-            <div key={project.name}>
-              <ProjectCard project={project} />
-            </div>
-          ))}
-        </div>
+        <HoverEffect className="w-full" items={projectList.slice(0, 6)} />
       )}
     </div>
   );
