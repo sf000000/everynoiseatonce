@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
   try {
     const blogDir = "blogs";
 
-    const files = fs.readdirSync(path.join(blogDir));
+    const files = fs.readdirSync(path.join(process.cwd(), "blogs"));
 
     const blogs = files.map((filename) => {
       const fileContent = fs.readFileSync(
