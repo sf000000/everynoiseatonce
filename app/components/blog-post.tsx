@@ -30,22 +30,7 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
 
   return (
     <div className={cn("mt-8", className)} {...props}>
-      {blog?.meta.image && (
-        <Image
-          src={blog?.meta.image as string}
-          alt="Blog post image"
-          width={1200}
-          height={600}
-          className="rounded w-full h-60 object-cover"
-        />
-      )}
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold mt-4">{blog?.meta.title}</h1>
-        <div className="flex items-center gap-x-2">
-          <Heart className="w-4 h-4 fill-rose-500 stroke-none" />
-          <span className="text-sm text-muted-foreground">13</span>
-        </div>
-      </div>
+      <h1 className="text-2xl font-semibold mt-4">{blog?.meta.title}</h1>
       <span className="text-sm text-muted-foreground">{blog?.meta.date}</span>
     </div>
   );

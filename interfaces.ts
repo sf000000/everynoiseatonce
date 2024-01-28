@@ -60,7 +60,6 @@ export interface BlogPost {
     date: string;
     description: string;
     tags: string[];
-    image: string;
   };
   content: string;
 }
