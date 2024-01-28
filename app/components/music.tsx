@@ -61,7 +61,10 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
     >
       <CardContainer className="inter-var select-none">
         <CardBody className="group/card dark:hover:shadow-2xl dark:hover:shadow-indigo-500/[0.1] dark:border-white/[0.2] border-black/[0.1] bg-secondary/5 w-full sm:w-full h-auto rounded-xl p-6 border">
-          <CardItem translateZ="100" className="w-full flex items-center">
+          <CardItem
+            translateZ="100"
+            className="w-full flex flex-col sm:flex-row items-center"
+          >
             <Image
               src={profile?.image[3].url || "/images/placeholder.png"}
               height="250"
@@ -84,7 +87,7 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
                   <ExternalLink className="w-5 h-5" />
                 </Link>
               </div>
-              <span className="text-sm text-muted-foreground flex items-center">
+              <span className="text-sm text-muted-foreground flex items-center justify-center sm:justify-start">
                 <Play className="mr-1 w-[14px] h-[14px]" />
                 {Number(profile?.playcount).toLocaleString()} plays
               </span>
