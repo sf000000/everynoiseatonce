@@ -4,6 +4,7 @@ import InfoSection from "@/app/components/info-section";
 import Experience from "@/app/components/experience";
 import Projects from "@/app/components/projects";
 import LatestBlogs from "@/app/components/latest-blogs";
+import Music from "@/app/components/music";
 
 export default function Home() {
   return (
@@ -11,9 +12,9 @@ export default function Home() {
       <div className="w-full max-w-3xl">
         <div>
           <InfoSection />
-          <div className="border-b w-full my-8"></div>
+          <div className="border-b  w-full my-8"></div>
           <Tabs defaultValue="about" className="">
-            <TabsList>
+            <TabsList className="dark:bg-secondary/5 border">
               <TabsTrigger value="about">About</TabsTrigger>
               <TabsTrigger value="blogs">Blogs</TabsTrigger>
               <TabsTrigger value="more">More</TabsTrigger>
@@ -34,7 +35,7 @@ export default function Home() {
             <TabsContent value="blogs">Blogs</TabsContent>
             <TabsContent value="more">
               <div className="mt-4">
-                <></>
+                <Music />
               </div>
             </TabsContent>
           </Tabs>
