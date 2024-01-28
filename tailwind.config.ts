@@ -75,6 +75,16 @@ const config = {
             opacity: "0",
           },
         },
+        flip: {
+          to: {
+            transform: "rotate(360deg)",
+          },
+        },
+        rotate: {
+          to: {
+            transform: "rotate(90deg)",
+          },
+        },
       },
 
       animation: {
@@ -87,6 +97,8 @@ const config = {
           "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite 300ms",
         "pulse-delay-450":
           "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite 450ms",
+        flip: "flip 6s infinite steps(2, end)",
+        rotate: "rotate 3s linear infinite both",
       },
     },
   },
