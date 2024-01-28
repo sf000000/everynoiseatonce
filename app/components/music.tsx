@@ -15,6 +15,7 @@ import Lyrics from "@/app/components/lyrics";
 import NowPlayingDots from "@/components/now-playing-dots";
 import { cn, truncate } from "@/lib/utils";
 import { Profile, Track } from "@/interfaces";
+import { FaLastfm } from "react-icons/fa6";
 
 export default function Music({ className, ...props }: ComponentProps<"div">) {
   const [profile, setProfile] = useState<Profile>();
@@ -61,7 +62,7 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
       className={cn("flex items-center gap-x-2 w-full", className)}
     >
       <CardContainer className="inter-var select-none">
-        <CardBody className="group/card dark:hover:shadow-2xl dark:hover:shadow-indigo-500/[0.1] dark:border-white/[0.2] border-black/[0.1] bg-secondary/5 w-full sm:w-full h-auto rounded-xl p-6 border">
+        <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-indigo-500/[0.1] dark:border-white/[0.2] border-black/[0.1] bg-secondary/5 w-full sm:w-full h-auto rounded-xl p-6 border">
           <CardItem
             translateZ="100"
             className="w-full flex flex-col sm:flex-row items-center"
@@ -145,6 +146,9 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
                 ))}
               </div>
             </CardItem>
+          </div>
+          <div className="absolute top-0 right-0 p-4">
+            <FaLastfm className="w-8 h-8 text-zinc-100" />
           </div>
         </CardBody>
       </CardContainer>
