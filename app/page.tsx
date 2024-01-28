@@ -5,6 +5,7 @@ import Experience from "@/app/components/experience";
 import Projects from "@/app/components/projects";
 import LatestBlogs from "@/app/components/latest-blogs";
 import Music from "@/app/components/music";
+import BlogsList from "@/app/components/blogs-list";
 
 export default function Home() {
   return (
@@ -32,7 +33,9 @@ export default function Home() {
               <Projects />
               <LatestBlogs />
             </TabsContent>
-            <TabsContent value="blogs">Blogs</TabsContent>
+            <TabsContent value="blogs">
+              <BlogsList />
+            </TabsContent>
             <TabsContent value="more">
               <div className="mt-4">
                 <Music />
