@@ -76,10 +76,17 @@ const config = {
           },
         },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "meteor-effect": "meteor 5s linear infinite",
+        "pulse-delay-150":
+          "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite 150ms",
+        "pulse-delay-300":
+          "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite 300ms",
+        "pulse-delay-450":
+          "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite 450ms",
       },
     },
   },
