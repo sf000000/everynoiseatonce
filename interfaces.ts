@@ -26,8 +26,8 @@ export interface Profile {
 export interface Track {
   artist: Artist;
   streamable: string;
-  image: Image[];
   mbid: string;
+  artwork: string;
   album: Album;
   name: string;
   "@attr": Attr;
@@ -40,11 +40,6 @@ export interface Track {
 
 export interface Artist {
   mbid: string;
-  "#text": string;
-}
-
-export interface Image {
-  size: string;
   "#text": string;
 }
 
