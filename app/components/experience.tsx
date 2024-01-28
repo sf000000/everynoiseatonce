@@ -18,7 +18,7 @@ export default function Experience({
             </div>
           </div>
           <div className="mb-4 text-sm font-normal text-muted-foreground">
-            Company Name (2020-present)
+            Company Name
           </div>
         </li>
         <li className="mb-10 ms-4">
