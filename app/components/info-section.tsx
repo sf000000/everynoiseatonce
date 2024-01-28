@@ -14,7 +14,7 @@ export default function InfoSection({
     <div className={cn("", className)} {...props}>
       <Link className="flex items-center justify-between" href="/">
         <Image
-          src="/images/avatar.png"
+          src="/images/avatar.jpg"
           alt="avatar"
           width={50}
           height={50}
