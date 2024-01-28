@@ -10,7 +10,7 @@ export default function Experience({
       <h1 className="font-medium mb-4 text-lg">Experience</h1>
       <ol className="relative border-s">
         <li className="mb-10 ms-4">
-          <div className="absolute w-3 h-3 bg-emerald-500 rounded-full mt-1.5 -start-1.5 border "></div>
+          <div className="absolute w-3 h-3 bg-indigo-500 rounded-full mt-1.5 -start-1.5 border "></div>
           <div className="flex flex-row items-center gap-2">
             <div className="text-md font-medium">Front-End Engineer</div>
             <div className="inline-block uppercase text-xs rounded-full px-1 py-0 border border-zinc-500 text-muted-foreground">
