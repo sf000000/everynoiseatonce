@@ -1,21 +1,19 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
-import { cn, truncate } from "@/lib/utils";
-import { ComponentProps } from "react";
-
+import { useState, useEffect, ComponentProps } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import axios from "axios";
+import moment from "moment";
+import { Loader2, Play, ExternalLink } from "lucide-react";
 import {
   CardBody,
   CardContainer,
   CardItem,
 } from "@/app/components/three-d-card";
-
-import Image from "next/image";
-import axios from "axios";
+import NowPlayingDots from "@/components/now-playing-dots";
+import { cn, truncate } from "@/lib/utils";
 import { Profile, Track } from "@/interfaces";
-import { ExternalLink, Loader2, Play } from "lucide-react";
-import Link from "next/link";
 
 export default function Music({ className, ...props }: ComponentProps<"div">) {
   const [profile, setProfile] = useState<Profile>();
@@ -38,7 +36,6 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
           fetchRecentTracks,
         ]);
         setProfile(profileRes.data.user);
-        console.log(recentTracksRes.data.recenttracks.track);
         setRecentTracks(recentTracksRes.data.recenttracks.track);
       } catch (error) {
         console.error("[fetchData]", error);
@@ -109,9 +106,7 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
                   >
                     <div className="flex items-center">
                       <Image
-                        src={
-                          track.image[0]["#text"] || "/images/placeholder.png"
-                        }
+                        src={track.artwork || "/images/placeholder.png"}
                         height="30"
                         width="30"
                         className="h-8 w-8 object-cover rounded-full opacity-0 transition-opacity duration-300"
@@ -131,7 +126,11 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
                       </div>
                     </div>
                     <span className="text-xs text-muted-foreground">
-                      {track.date?.["#text"] || "Now Playing"}
+                      {track["@attr"]?.nowplaying ? (
+                        <NowPlayingDots />
+                      ) : (
+                        moment.unix(Number(track.date?.uts)).fromNow()
+                      )}
                     </span>
                   </div>
                 ))}
