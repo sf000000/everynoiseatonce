@@ -27,6 +27,7 @@ export interface Track {
   artist: Artist;
   streamable: string;
   mbid: string;
+  spotifyId: string;
   artwork: string;
   album: Album;
   name: string;
