@@ -8,7 +8,9 @@ export async function GET(req: NextRequest) {
   try {
     const blogDir = "blogs";
 
-    const files = fs.readdirSync(path.join(process.cwd(), "blogs"));
+    const files = fs.readdirSync(path.join(process.cwd(), blogDir));
+
+    console.log(files);
 
     const blogs = files.map((filename) => {
       const fileContent = fs.readFileSync(
@@ -25,6 +27,6 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(blogs);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message });
+    return NextResponse.json({ error: `[app/api/blogs/route.ts]: ${error}` });
   }
 }

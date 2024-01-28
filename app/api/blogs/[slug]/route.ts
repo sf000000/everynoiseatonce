@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const markdownFile = fs.readFileSync(
-      path.join("blogs", slug + ".mdx"),
+      path.join(process.cwd() + "blogs", slug + ".mdx"),
       "utf-8"
     );
 
@@ -20,6 +20,8 @@ export async function GET(req: NextRequest) {
       content,
     });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message });
+    return NextResponse.json({
+      error: `[app/api/blogs/[slug]/route.ts]: ${error}`,
+    });
   }
 }
