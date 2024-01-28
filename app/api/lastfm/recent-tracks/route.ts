@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
         },
       });
 
-      const artwork = deezerResponse.data.data[0].album.cover_medium;
+      const artwork = deezerResponse?.data?.data[0]?.album?.cover_small;
       return { ...track, artwork };
     });
 
