@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const markdownFile = fs.readFileSync(
-      path.join(process.cwd() + "blogs", slug + ".mdx"),
+      path.join(process.cwd() + "/blogs", slug + ".mdx"),
       "utf-8"
     );
 
