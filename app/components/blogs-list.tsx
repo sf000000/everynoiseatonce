@@ -5,13 +5,35 @@ import { ComponentProps, useState, useEffect } from "react";
 
 import axios from "axios";
 import { BlogPost } from "@/interfaces";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
+import BlogListItem from "./blog-list-item";
+
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 export default function BlogsList({
   className,
   ...props
-}: ComponentProps<"div">) {
+}: ComponentProps<typeof motion.div>) {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
 
   useEffect(() => {
@@ -28,33 +50,20 @@ export default function BlogsList({
   }, []);
 
   return (
-    <div {...props} className={cn("", className)}>
-      <div className="flex flex-col">
+    <motion.div
+      {...props}
+      className={cn("", className)}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <div className="flex flex-col space-y-2">
         {blogs.map((blog) => (
-          <Link
-            className="bg-secondary/10 border h-24 px-4 py-2 rounded mt-2 flex items-center justify-between"
-            key={blog.slug}
-            href={`/blogs/${blog.slug}`}
-          >
-            <div>
-              <div className="flex items-center gap-x-2">
-                <h3 className="text-lg font-semibold">{blog.meta.title}</h3>
-                {blog.meta.tags.map((tag) => (
-                  <Badge variant="outline" key={tag}>
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground max-w-sm">
-                {blog.meta.description}
-              </p>
-            </div>
-            <span className="text-xs text-muted-foreground">
-              {blog.meta.date}
-            </span>
-          </Link>
+          <motion.div key={blog.slug} variants={itemVariants}>
+            <BlogListItem className="" blog={blog} />
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
