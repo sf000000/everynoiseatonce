@@ -52,3 +52,15 @@ export interface Album {
 export interface Attr {
   nowplaying: string;
 }
+
+export interface BlogPost {
+  slug: string;
+  meta: {
+    title: string;
+    date: string;
+    description: string;
+    tags: string[];
+    image: string;
+  };
+  content: string;
+}
