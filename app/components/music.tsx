@@ -11,6 +11,7 @@ import {
   CardContainer,
   CardItem,
 } from "@/app/components/three-d-card";
+import Lyrics from "@/app/components/lyrics";
 import NowPlayingDots from "@/components/now-playing-dots";
 import { cn, truncate } from "@/lib/utils";
 import { Profile, Track } from "@/interfaces";
@@ -95,7 +96,7 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
           </CardItem>
           <div>
             <CardItem
-              translateZ={20}
+              translateZ="50"
               as="div"
               className="px-4 py-2 rounded-xl text-xs font-normal w-full"
             >
@@ -128,6 +129,11 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
                         </span>
                       </div>
                     </div>
+                    <span className="text-xs text-muted-foreground">
+                      {track["@attr"]?.nowplaying && (
+                        <Lyrics trackId={track.spotifyId} />
+                      )}
+                    </span>
                     <span className="text-xs text-muted-foreground">
                       {track["@attr"]?.nowplaying ? (
                         <NowPlayingDots />
