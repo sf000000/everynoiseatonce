@@ -32,7 +32,7 @@ export const InfiniteSlider = () => {
           {LOGOS.map((logo, index) => (
             <div
               className="slide flex w-[125px] items-center justify-center"
-              key={index}
+              key={`first-${index}`}
             >
               {logo}
             </div>
@@ -40,7 +40,7 @@ export const InfiniteSlider = () => {
           {LOGOS.map((logo, index) => (
             <div
               className="slide flex w-[125px] items-center justify-center"
-              key={index}
+              key={`second-${index}`}
             >
               {logo}
             </div>
