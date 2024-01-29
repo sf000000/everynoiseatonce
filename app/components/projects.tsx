@@ -4,6 +4,7 @@ import React, { ComponentProps, useEffect, useState } from "react";
 import axios from "axios";
 import { HoverEffect } from "@/components/card-hover-effect";
 import { cn } from "@/lib/utils";
+import { ProjectCard } from "@/app/components/project-card";
 
 export interface Project {
   name: string;
@@ -17,13 +18,6 @@ export default function Projects({
   ...props
 }: ComponentProps<"div">) {
   const [projects, setProjects] = useState<Project[] | undefined>(undefined);
-
-  const projectList =
-    projects?.map((project) => ({
-      title: project.name,
-      description: project.description,
-      link: project.html_url,
-    })) || [];
 
   useEffect(() => {
     async function fetchProjects() {
@@ -43,11 +37,15 @@ export default function Projects({
   return (
     <div {...props} className={cn("mt-8 w-full", className)}>
       <h1 className="font-medium mb-4 text-lg">Projects</h1>
-      {projects === undefined ? (
-        <p>Loading...</p>
-      ) : (
-        <HoverEffect className="w-full" items={projectList.slice(0, 6)} />
-      )}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {projects?.slice(0, 6).map((project) => (
+          <ProjectCard
+            key={project.name}
+            project={project}
+            className="w-full select-none"
+          />
+        ))}
+      </div>
     </div>
   );
 }
