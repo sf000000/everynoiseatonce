@@ -1,0 +1,87 @@
+---
+title: Creating an animated text gradient with CSS
+date: "01/29/2024"
+---
+
+Text gradients have become increasingly popular in modern web design, giving websites a fresh and dynamic look. One excellent example of this trend is Apple's iPhone 14 landing page, where they showcase a stunning animated text gradient.
+
+<AnimatedTextGradientTW />
+
+## How to do it
+
+First, we will do it with plain CSS, and then we will do it with Tailwind CSS.
+
+```html
+<span>hello, animated text gradient</span>
+```
+
+```css
+span {
+  background: radial-gradient(
+    circle at 100%,
+    #b2a8fd,
+    #8678f9 50%,
+    #c7d2fe 75%,
+    #9a8dfd 75%
+  );
+  font-weight: 600;
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animatedTextGradient 1.5s linear infinite;
+}
+
+@keyframes animatedTextGradient {
+  to {
+    background-position: 200% center;
+  }
+}
+```
+
+What we do here is:
+
+- background: radial-gradient(...): Creates a radial gradient with a circle at 100%, using the specified color stops.
+- background-size: 200% auto: Sets the background size to 200% width and automatically adjusts the height.
+- background-clip: text: Clips the background to the text content.
+- -webkit-text-fill-color: transparent: Makes the text fill transparent (for webkit-based browsers).
+- animation: animatedTextGradient 1s linear infinite: Applies the animatedTextGradient animation with a duration of 1s, a linear timing function, and infinite repetition.
+- @keyframes rule defines the animatedTextGradient animation, which animates the background position from its initial value to 200% center, creating a smooth gradient movement effect.
+
+### Tailwind CSS
+
+If you prefer using Tailwind CSS, here's the equivalent code written with React:
+
+```jsx
+module.exports = {
+  theme: {
+    extend: {
+      animation: {
+        "text-gradient": "text 1.5s linear infinite",
+      },
+      keyframes: {
+        text: {
+          to: {
+            backgroundPosition: "200% center",
+          },
+        },
+      },
+    },
+  },
+};
+```
+
+Then we use our `animate-text-gradient`, we use a background image with a linear gradient with the same color stops as the previous example, and we set the background size to 200% auto, the background clip to text, and the text color to transparent.
+
+```jsx
+export const AnimatedTextGradientTW: React.FC = () => {
+  return (
+    <span
+      className="animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] 
+    bg-[200%_auto] bg-clip-text text-transparent"
+    >
+      Lorem, ipsum dolor sit amet
+    </span>
+  );
+};
+```
