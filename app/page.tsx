@@ -10,6 +10,9 @@ import Music from "@/app/components/music";
 import BlogsList from "@/app/components/blogs-list";
 
 import { motion } from "framer-motion";
+import { DistortedText } from "./components/lab/distorted-text";
+import { ButtonShadowSpotlight } from "./components/lab/button-shadow-spotlight";
+import { ButtonFlickeringLight } from "./components/lab/button-flickering";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -70,9 +73,34 @@ export default function Home() {
               <BlogsList className="mt-4" />
             </TabsContent>
             <TabsContent value="music">
-              <Music className="mt-4" />
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+              >
+                <motion.div variants={itemVariants}>
+                  <Music />
+                </motion.div>
+              </motion.div>
             </TabsContent>
-            <TabsContent value="lab">Lab</TabsContent>
+            <TabsContent className="flex flex-col" value="lab">
+              <motion.div
+                className="flex flex-col gap-y-4 mt-2"
+                initial="hidden"
+                animate="show"
+                variants={containerVariants}
+              >
+                <motion.div variants={itemVariants}>
+                  <ButtonShadowSpotlight />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <DistortedText />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <ButtonFlickeringLight />
+                </motion.div>
+              </motion.div>
+            </TabsContent>
           </Tabs>
         </div>
       </div>
