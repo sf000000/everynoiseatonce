@@ -70,7 +70,7 @@ export default function Home() {
               <BlogsList className="mt-4" />
             </TabsContent>
             <TabsContent value="music">
-              <Music />
+              <Music className="mt-4" />
             </TabsContent>
             <TabsContent value="lab">Lab</TabsContent>
           </Tabs>
