@@ -96,6 +96,11 @@ const config = {
             backgroundPosition: "200% center",
           },
         },
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
       },
 
       animation: {

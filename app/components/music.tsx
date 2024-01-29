@@ -1,11 +1,13 @@
-"use client";
-
 import { useState, useEffect, ComponentProps } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
+
 import axios from "axios";
 import moment from "moment";
-import { Loader2, Play, ExternalLink } from "lucide-react";
+import { Play, ExternalLink } from "lucide-react";
+import { FaLastfm } from "react-icons/fa6";
+
 import {
   CardBody,
   CardContainer,
@@ -13,59 +15,10 @@ import {
 } from "@/app/components/three-d-card";
 import Lyrics from "@/app/components/lyrics";
 import NowPlayingDots from "@/components/now-playing-dots";
+import { MusicCardSkeleton } from "@/app/components/skeletons/music-card-skeleton";
+
 import { cn, truncate } from "@/lib/utils";
 import { Profile, Track } from "@/interfaces";
-import { FaLastfm } from "react-icons/fa6";
-
-// Skeleton Loader Component
-const SkeletonLoader = () => (
-  <CardContainer className="inter-var select-none">
-    <CardBody className="animate-pulse relative group/card dark:hover:shadow-2xl dark:hover:shadow-indigo-500/[0.1] dark:border-white/[0.2] border-black/[0.1] bg-secondary/5 w-full sm:w-full h-auto rounded-xl p-6 border">
-      <CardItem
-        translateZ="100"
-        className="w-full flex flex-col sm:flex-row items-center"
-      >
-        <div className="h-40 w-40 object-cover bg-secondary/10 transition-opacity duration-300 rounded-xl group-hover/card:shadow-xl" />
-        <div className="flex flex-col ml-4 gap-2">
-          <div className="flex items-center gap-x-2">
-            <div className="w-40 h-5 rounded bg-secondary/10" />
-            <div className="w-5 h-5 bg-secondary/10 rounded" />
-          </div>
-          <span className="text-sm text-muted-foreground flex items-center justify-center sm:justify-start">
-            <div className="mr-1 bg-secondary/10 rounded w-[14px] h-[14px]" />
-            <div className="w-16 h-5 rounded bg-secondary/10" />
-          </span>
-        </div>
-      </CardItem>
-      <div>
-        <CardItem
-          translateZ="50"
-          as="div"
-          className="px-4 py-2 rounded-xl text-xs font-normal w-full"
-        >
-          <h2 className="text-sm">Recent Tracks</h2>
-          <div className="border-b w-full my-2"></div>
-          <div className="flex gap-2 flex-col">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="h-8 w-8 bg-secondary/10 rounded-full" />
-                  <div className="flex flex-col ml-2">
-                    <span className="text-sm bg-secondary/10 rounded w-16 h-5" />
-                  </div>
-                </div>
-                <span className="text-xs text-muted-foreground bg-secondary/10 w-16 h-5 rounded" />
-              </div>
-            ))}
-          </div>
-        </CardItem>
-      </div>
-      <div className="absolute top-0 right-0 p-4">
-        <FaLastfm className="w-8 h-8 text-zinc-100" />
-      </div>
-    </CardBody>
-  </CardContainer>
-);
 
 export default function Music({ className, ...props }: ComponentProps<"div">) {
   const [profile, setProfile] = useState<Profile>();
@@ -100,7 +53,6 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
   }, []);
 
   if (loading) {
-    // Render the SkeletonLoader instead of the spinner
     return (
       <div
         className={cn(
@@ -108,7 +60,7 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
           className
         )}
       >
-        <SkeletonLoader />
+        <MusicCardSkeleton />
       </div>
     );
   }

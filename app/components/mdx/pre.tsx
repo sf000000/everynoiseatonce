@@ -14,7 +14,7 @@ export function Pre({
 }) {
   return (
     <pre {...props} className={clsx("relative text-[15px]")}>
-      <div className="absolute inset-0 -z-10 h-full w-full border rounded-md bg-secondary/5 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-secondary/10 border rounded-lg bg-[radial-gradient(rgba(48,45,42,0.2)_1px,transparent_1px)] [background-size:16px_16px]">
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-full w-full rounded-full bg-indigo-500/5 blur-[100px]"></div>
       </div>
       {children}
