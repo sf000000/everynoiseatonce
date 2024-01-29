@@ -18,7 +18,7 @@ In this article, we'll explore how to create an elegant and responsive infinite 
 
 1. The first section of the code imports various icons from the Radix UI library. These icons will be used in the slider.
 
-```jsx
+```tsx
 import {
   FigmaLogoIcon,
   FramerLogoIcon,
@@ -35,7 +35,7 @@ import {
 
 2. The LOGOS array is created which contains instances of each of these icons with a specific width, height and color.
 
-```jsx
+```tsx
 const LOGOS = [
   <FigmaLogoIcon width={24} height={24} className="text-slate-800" />,
   ...
@@ -44,7 +44,7 @@ const LOGOS = [
 
 3. The Slider component is created which will contain the logic for the infinite slider.
 
-```jsx
+```tsx
 export const InfiniteSlider = () => {
   return (
     <>
@@ -59,7 +59,7 @@ export const InfiniteSlider = () => {
 
 4. The outer div is styled to be a relative container with a width of 500px, an overflow of hidden to hide the parts of the slider that go beyond its width, and a background color of white. It also has before and after pseudo-elements that create a fade-in and fade-out effect on the edges of the slider. Finaly it has a custom animation called animate-infinite-slider that is defined in the `tailwind.config.ts` file.
 
-```jsx
+```tsx
 <div className="animate-infinite-slider relative m-auto w-[500px] overflow-hidden bg-white before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,white_0%,rgba(255,255,255,0)_100%)] before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,white_0%,rgba(255,255,255,0)_100%)] after:content-['']">
   ...
 </div>
@@ -67,7 +67,7 @@ export const InfiniteSlider = () => {
 
 5. Inside the slide-track div, the LOGOS array is mapped twice to create two sets of slides. This is done to create the illusion of an infinite slider. When the first set of slides finishes, the second set starts, creating a seamless transition.
 
-```jsx
+```tsx
 {
   LOGOS.map((logo, index) => (
     <div
