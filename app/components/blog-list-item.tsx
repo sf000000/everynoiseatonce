@@ -21,7 +21,6 @@ export default function BlogListItem({
       </span>
       <span className="backdrop absolute inset-[0.9px] rounded transition-colors duration-200 dark:bg-[#0b0b0c] dark:group-hover:bg-[#0b0b0c] bg-[#f4f4f5] group-hover:bg-[#f4f4f5]" />
       <div className="z-10">
-        <h3 className="text-lg font-semibold">{blog.meta.title}</h3>
         <p className="text-sm text-muted-foreground max-w-sm">
           {blog.meta.description}
         </p>
