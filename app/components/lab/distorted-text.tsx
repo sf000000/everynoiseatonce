@@ -11,7 +11,7 @@ export const DistortedText = () => {
         className="relative h-[220px] w-full border rounded-lg overflow-hidden"
       >
         <div className="mb-1 inline-block text-sm sm:hidden">
-          might doesn't work on mobile
+          might doesn&apos;t work on mobile
         </div>
         <div className="flex h-full overflow-y-scroll text-2xl p-3">
           Death Note (2006-2007) - IMDb - Death Note: Created by Tsugumi Ohba
@@ -19,17 +19,17 @@ export const DistortedText = () => {
           Nakamura, Aya Hirano. Light Yagami is an ace student with great
           prospects, who stumbles upon a mysterious notebook that has the power
           to kill anyone whose name is written in it. Intent on cleansing the
-          world of criminals, Light takes on the persona of "Kira" to enact his
-          brand of justice. But as his moral boundaries blur, a relentless
-          detective known as L becomes determined to stop his reign. The
-          cat-and-mouse game that unfolds challenges the very notions of right
-          and wrong, justice and retribution. As Light and L engage in a battle
-          of wits, the question arises: can one person hold the power to decide
-          life and death without becoming a tyrant? The fate of humanity hangs
-          in the balance as ideologies clash, with the concept of justice being
-          redefined by each character's perspective. This is the gripping tale
-          of Death Note, where intellect and morality are tested in the face of
-          ultimate power.
+          world of criminals, Light takes on the persona of &quot;Kira&quot; to
+          enact his brand of justice. But as his moral boundaries blur, a
+          relentless detective known as L becomes determined to stop his reign.
+          The cat-and-mouse game that unfolds challenges the very notions of
+          right and wrong, justice and retribution. As Light and L engage in a
+          battle of wits, the question arises: can one person hold the power to
+          decide life and death without becoming a tyrant? The fate of humanity
+          hangs in the balance as ideologies clash, with the concept of justice
+          being redefined by each character&apos;s perspective. This is the
+          gripping tale of Death Note, where intellect and morality are tested
+          in the face of ultimate power.
         </div>
 
         <div
