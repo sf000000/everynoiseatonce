@@ -18,6 +18,8 @@ import { InfiniteSlider } from "@/app/components/mdx/infinite-slider";
 import { Pre } from "@/app/components/mdx/pre";
 import { AnimatedTextGradientTW } from "@/app/components/mdx/animated-text-gradient";
 
+import { ExternalLink } from "lucide-react";
+
 interface BlogPostProps extends ComponentProps<"div"> {
   slug: string;
 }
@@ -48,7 +50,6 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
             },
           });
           setSource(serializedContent);
-          console.log(serializedContent);
         }
       } catch (error) {
         console.error(error);
@@ -62,6 +63,17 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
 
   const custom = {
     pre: (props: any) => <Pre {...props} />,
+    a: (props: any) => (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-x-1"
+        {...props}
+      >
+        {props.children}
+        <ExternalLink className="w-4 h-4" />
+      </a>
+    ),
   };
 
   return (
