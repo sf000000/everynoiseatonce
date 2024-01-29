@@ -1,3 +1,5 @@
+"use client";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import InfoSection from "@/app/components/info-section";
@@ -6,6 +8,23 @@ import Projects from "@/app/components/projects";
 import LatestBlogs from "@/app/components/latest-blogs";
 import Music from "@/app/components/music";
 import BlogsList from "@/app/components/blogs-list";
+
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  show: { y: 0, opacity: 1 },
+};
 
 export default function Home() {
   return (
@@ -18,29 +37,42 @@ export default function Home() {
             <TabsList className="dark:bg-secondary/5 border">
               <TabsTrigger value="about">About</TabsTrigger>
               <TabsTrigger value="blogs">Blogs</TabsTrigger>
-              <TabsTrigger value="more">More</TabsTrigger>
+              <TabsTrigger value="music">Music</TabsTrigger>
+              <TabsTrigger value="lab">Lab</TabsTrigger>
             </TabsList>
+
             <TabsContent value="about">
-              <div className="mt-4">
-                <p className="text-lg text-muted-foreground">
-                  Passionate about building things for the web. I&apos;m a
-                  self-taught developer who enjoys learning new things and
-                  solving problems. I&apos;m currently working as a freelance
-                  developer.
-                </p>
-              </div>
-              <Experience />
-              <Projects />
-              <LatestBlogs />
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+              >
+                <motion.div className="mt-4" variants={itemVariants}>
+                  <p className="text-base text-muted-foreground">
+                    Passionate about building things for the web. I'm a
+                    self-taught developer who enjoys learning new things and
+                    solving problems. I'm currently working as a freelance
+                    developer.
+                  </p>
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <Experience />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <Projects />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <LatestBlogs />
+                </motion.div>
+              </motion.div>
             </TabsContent>
             <TabsContent value="blogs">
-              <BlogsList />
+              <BlogsList className="mt-4" />
             </TabsContent>
-            <TabsContent value="more">
-              <div className="mt-4">
-                <Music />
-              </div>
+            <TabsContent value="music">
+              <Music />
             </TabsContent>
+            <TabsContent value="lab">Lab</TabsContent>
           </Tabs>
         </div>
       </div>
