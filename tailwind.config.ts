@@ -91,6 +91,11 @@ const config = {
             transform: "translateX(calc(-250px * 5))",
           },
         },
+        text: {
+          to: {
+            backgroundPosition: "200% center",
+          },
+        },
       },
 
       animation: {
@@ -106,6 +111,7 @@ const config = {
           "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite 450ms",
         flip: "flip 6s infinite steps(2, end)",
         rotate: "rotate 3s linear infinite both",
+        "text-gradient": "text 1.5s linear infinite",
       },
     },
   },
