@@ -42,9 +42,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               )}
             </button>
             <Link
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                `Check out this blog post: ${window.location.origin}/blogs/${params.slug}`
-              )}`}
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm ml-2 rounded-full bg-neutral-950/60 p-2"
