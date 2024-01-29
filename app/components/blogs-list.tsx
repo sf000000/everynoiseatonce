@@ -1,6 +1,6 @@
-import { ComponentProps, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { BlogPost } from "@/interfaces";
 
@@ -16,37 +16,41 @@ const itemVariants = {
   }),
 };
 
-export default function BlogsList({
-  className,
-  ...props
-}: ComponentProps<typeof motion.div>) {
+export default function BlogsList({ className, ...props }) {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
-  const controls = useAnimation();
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get("/api/blogs");
-        setBlogs(response.data);
-        controls.start((i) => "visible");
+        const sortedBlogs = response.data.sort((a: any, b: any) => {
+          const dateA = new Date(a.meta.date);
+          const dateB = new Date(b.meta.date);
+          return dateB.getTime() - dateA.getTime();
+        });
+        setBlogs(sortedBlogs);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchBlogs();
-  }, [controls]);
+  }, []);
 
   return (
-    <motion.div {...props} className={className} initial="hidden">
+    <motion.div
+      {...props}
+      className={className}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="flex flex-col space-y-2">
         {blogs.map((blog, index) => (
           <motion.div
             key={blog.slug}
-            custom={index} // Pass index to use in the variant
+            custom={index}
             variants={itemVariants}
             initial="hidden"
-            animate={controls}
           >
             <Link
               href={`/blogs/${blog.slug}`}
