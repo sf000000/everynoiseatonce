@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ComponentProps, useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -16,7 +16,10 @@ const itemVariants = {
   }),
 };
 
-export default function BlogsList({ className, ...props }) {
+export default function BlogsList({
+  className,
+  ...props
+}: ComponentProps<typeof motion.div>) {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
 
   useEffect(() => {
