@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 
-export const preProcess = () => (tree) => {
+export const preProcess = () => (tree: any) => {
   visit(tree, (node) => {
     if (node?.type === "element" && node?.tagName === "pre") {
       const [codeEl] = node.children;
@@ -12,7 +12,7 @@ export const preProcess = () => (tree) => {
   });
 };
 
-export const postProcess = () => (tree) => {
+export const postProcess = () => (tree: any) => {
   visit(tree, "element", (node) => {
     if (node?.type === "element" && node?.tagName === "pre") {
       node.properties["raw"] = node.raw;
