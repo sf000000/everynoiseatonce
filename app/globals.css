@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.gradient-background {
+  background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
