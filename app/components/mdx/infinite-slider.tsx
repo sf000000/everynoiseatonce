@@ -12,16 +12,16 @@ import {
 } from "@radix-ui/react-icons";
 
 const LOGOS = [
-  <FigmaLogoIcon className="text-white w-8 h-8" />,
-  <FramerLogoIcon className="text-white w-8 h-8" />,
-  <SketchLogoIcon className=" text-white w-8 h-8" />,
-  <TwitterLogoIcon className="text-white w-8 h-8" />,
-  <GitHubLogoIcon className="text-white w-8 h-8" />,
-  <VercelLogoIcon className="text-white w-8 h-8" />,
-  <NotionLogoIcon className="text-white w-8 h-8" />,
-  <DiscordLogoIcon className="text-white w-8 h-8" />,
-  <InstagramLogoIcon className="text-white w-8 h-8" />,
-  <LinkedInLogoIcon className="text-white w-8 h-8" />,
+  <FigmaLogoIcon className="text-white w-8 h-8" key="figma" />,
+  <FramerLogoIcon className="text-white w-8 h-8" key="framer" />,
+  <SketchLogoIcon className=" text-white w-8 h-8" key="sketch" />,
+  <TwitterLogoIcon className="text-white w-8 h-8" key="twitter" />,
+  <GitHubLogoIcon className="text-white w-8 h-8" key="github" />,
+  <VercelLogoIcon className="text-white w-8 h-8" key="vercel" />,
+  <NotionLogoIcon className="text-white w-8 h-8" key="notion" />,
+  <DiscordLogoIcon className="text-white w-8 h-8" key="discord" />,
+  <InstagramLogoIcon className="text-white w-8 h-8" key="instagram" />,
+  <LinkedInLogoIcon className="text-white w-8 h-8" key="linkedin" />,
 ];
 
 export const InfiniteSlider = () => {
@@ -32,7 +32,7 @@ export const InfiniteSlider = () => {
           {LOGOS.map((logo, index) => (
             <div
               className="slide flex w-[125px] items-center justify-center"
-              key={`first-${index}`}
+              key={index}
             >
               {logo}
             </div>
@@ -40,7 +40,7 @@ export const InfiniteSlider = () => {
           {LOGOS.map((logo, index) => (
             <div
               className="slide flex w-[125px] items-center justify-center"
-              key={`second-${index}`}
+              key={index}
             >
               {logo}
             </div>
