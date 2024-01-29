@@ -75,10 +75,16 @@ export const ProjectCard = ({
       </div>
 
       {project.homepage && (
-        <Link className="flex items-center gap-x-2" href={project.homepage}>
-          <ExternalLink size={16} />
-          <span className="text-sm line-clamp-1">Demo</span>
-        </Link>
+        <div className="absolute top-0 right-0 p-2">
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-x-2"
+            href={project.homepage}
+          >
+            <ExternalLink size={16} />
+          </Link>
+        </div>
       )}
     </div>
   );
