@@ -11,9 +11,12 @@ import rehypeHighlight from "rehype-highlight";
 
 import "@/styles/highlight-js/ir-black.css";
 
-import { InfiniteSlider } from "@/app/components/mdx/infinite-slider";
-
 import { motion } from "framer-motion";
+import { postProcess, preProcess } from "@/lib/rehype-pre-raw";
+
+import { InfiniteSlider } from "@/app/components/mdx/infinite-slider";
+import { Pre } from "@/app/components/mdx/pre";
+import { AnimatedTextGradientTW } from "@/app/components/mdx/animated-text-gradient";
 
 interface BlogPostProps extends ComponentProps<"div"> {
   slug: string;
@@ -26,7 +29,7 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
   const options = {
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [rehypeHighlight],
+      rehypePlugins: [preProcess, rehypeHighlight, postProcess],
     },
   };
 
@@ -41,7 +44,7 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
             mdxOptions: {
               development: process.env.NODE_ENV === "development",
               remarkPlugins: [],
-              rehypePlugins: [rehypeHighlight as any],
+              rehypePlugins: [preProcess, rehypeHighlight as any, postProcess],
             },
           });
           setSource(serializedContent);
@@ -56,6 +59,10 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
   }, [slug]);
 
   if (!source) return null;
+
+  const custom = {
+    pre: (props: any) => <Pre {...props} />,
+  };
 
   return (
     <div className={cn("mt-8", className)} {...props}>
@@ -74,6 +81,8 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
         <MDXRemote
           components={{
             InfiniteSlider,
+            AnimatedTextGradientTW,
+            ...custom,
           }}
           options={options}
           {...source}
