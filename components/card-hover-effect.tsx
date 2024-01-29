@@ -23,16 +23,16 @@ export const HoverEffect = ({
         className
       )}
     >
-      {items.map((item, idx) => (
+      {items.map((item, index) => (
         <Link
           href={item?.link}
-          key={item?.link}
+          key={index}
           className="relative group  block p-2 h-full w-full"
-          onMouseEnter={() => setHoveredIndex(idx)}
+          onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
-            {hoveredIndex === idx && (
+            {hoveredIndex === index && (
               <motion.span
                 className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-secondary/20 block rounded-md"
                 layoutId="hoverBackground"

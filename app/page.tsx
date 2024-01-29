@@ -49,9 +49,9 @@ export default function Home() {
               >
                 <motion.div className="mt-4" variants={itemVariants}>
                   <p className="text-base text-muted-foreground">
-                    Passionate about building things for the web. I'm a
+                    Passionate about building things for the web. I&apos;m a
                     self-taught developer who enjoys learning new things and
-                    solving problems. I'm currently working as a freelance
+                    solving problems. I&apos;m currently working as a freelance
                     developer.
                   </p>
                 </motion.div>
