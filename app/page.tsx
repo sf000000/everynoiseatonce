@@ -11,8 +11,6 @@ import BlogsList from "@/app/components/blogs-list";
 
 import { motion } from "framer-motion";
 import { DistortedText } from "./components/lab/distorted-text";
-import { ButtonShadowSpotlight } from "./components/lab/button-shadow-spotlight";
-import { ButtonFlickeringLight } from "./components/lab/button-flickering";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -91,13 +89,7 @@ export default function Home() {
                 variants={containerVariants}
               >
                 <motion.div variants={itemVariants}>
-                  <ButtonShadowSpotlight />
-                </motion.div>
-                <motion.div variants={itemVariants}>
                   <DistortedText />
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                  <ButtonFlickeringLight />
                 </motion.div>
               </motion.div>
             </TabsContent>
