@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import axios from "axios";
-import { Track } from "@/interfaces";
+import { TopArtist, Track } from "@/interfaces";
 
 const LASTFM_BASE_URL = "https://ws.audioscrobbler.com/2.0/";
 const SPOTIFY_ACCOUNTS_BASE_URL = "https://accounts.spotify.com/api/token";
@@ -26,6 +26,20 @@ async function getSpotifyAccessToken(clientId: string, clientSecret: string) {
   return data.access_token;
 }
 
+async function getTopArtists(lastFmApiKey: string, username: string) {
+  const response = await axios.get(`${LASTFM_BASE_URL}`, {
+    params: {
+      method: "user.gettopartists",
+      user: username,
+      api_key: lastFmApiKey,
+      format: "json",
+      limit: 4,
+    },
+  });
+
+  return response.data.topartists.artist;
+}
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const username = searchParams.get("username");
@@ -39,20 +53,22 @@ export async function GET(req: NextRequest) {
       spotifyClientSecret as string
     );
 
-    const lastFmResponse = await axios.get(`${LASTFM_BASE_URL}`, {
-      params: {
-        method: "user.getrecenttracks",
-        user: username,
-        api_key: lastFmApiKey,
-        format: "json",
-        limit: 4,
-      },
-    });
+    const [lastFmTracks, topArtists] = await Promise.all([
+      axios.get(`${LASTFM_BASE_URL}`, {
+        params: {
+          method: "user.getrecenttracks",
+          user: username,
+          api_key: lastFmApiKey,
+          format: "json",
+          limit: 4,
+        },
+      }),
+      getTopArtists(lastFmApiKey as string, username as string),
+    ]);
 
-    const data = lastFmResponse.data;
-    const tracks: Track[] = data.recenttracks.track;
+    const tracks = lastFmTracks.data.recenttracks.track;
 
-    const promises = tracks.map(async (track) => {
+    const trackPromises = tracks.map(async (track: Track) => {
       const query = `${track.artist["#text"]} ${track.name}`;
       const spotifyResponse = await axios.get(
         `${SPOTIFY_API_BASE_URL}/search`,
@@ -78,11 +94,45 @@ export async function GET(req: NextRequest) {
       }
     });
 
-    const results = await Promise.all(promises);
+    const artistPromises = topArtists.map(async (artist: TopArtist) => {
+      const spotifyResponse = await axios.get(
+        `${SPOTIFY_API_BASE_URL}/search`,
+        {
+          headers: {
+            Authorization: `Bearer ${spotifyAccessToken}`,
+          },
+          params: {
+            q: artist.name,
+            type: "artist",
+            limit: 1,
+          },
+        }
+      );
 
-    data.recenttracks.track = results;
+      if (spotifyResponse.data.artists.items.length > 0) {
+        const spotifyArtist = spotifyResponse.data.artists.items[0];
+        const artwork = spotifyArtist.images[0]?.url;
+        return { ...artist, spotifyId: spotifyArtist.id, artwork };
+      } else {
+        return { ...artist, spotifyId: null, artwork: null };
+      }
+    });
 
-    return NextResponse.json(data);
+    const [results, artistResults] = await Promise.all([
+      Promise.all(trackPromises),
+      Promise.all(artistPromises),
+    ]);
+
+    lastFmTracks.data.recenttracks.track = results;
+
+    const response = {
+      tracks: lastFmTracks.data,
+      topArtists: artistResults,
+    };
+
+    console.log(response);
+
+    return NextResponse.json(response);
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json({ error: error.message });

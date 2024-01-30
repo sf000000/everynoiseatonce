@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export const MusicCardSkeleton = ({ className }: { className?: string }) => (
   <CardContainer className={cn("inter-var select-none", className)}>
-    <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-indigo-500/[0.1] dark:border-white/[0.2] border-black/[0.1] bg-secondary/5 w-full sm:w-full h-auto rounded-xl p-6 border overflow-hidden">
+    <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-indigo-500/[0.1] bg-secondary/5 w-full sm:w-full h-auto rounded-xl p-6 border overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-fuchsia-100/5 to-transparent animate-[shimmer_2s_infinite] before:absolute before:inset-0 before:-translate-x-full" />
       <CardItem
         translateZ="100"
