@@ -7,6 +7,9 @@ import BlogPost from "@/app/components/blog-post";
 import { useState } from "react";
 import { LuTwitter } from "react-icons/lu";
 
+import { motion } from "framer-motion";
+import ScrollProgress from "@/app/components/scroll-progress";
+
 export default function Page({ params }: { params: { slug: string } }) {
   const [isCopied, setIsCopied] = useState(false);
 
@@ -23,6 +26,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main className="flex items-center justify-between w-full flex-col p-8 min-h-screen">
+      <ScrollProgress />
       <div className="w-full max-w-3xl">
         <div className="flex items-center justify-between">
           <Link className="flex items-center gap-x-2" href="/">
