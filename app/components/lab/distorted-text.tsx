@@ -11,7 +11,7 @@ export const DistortedText = () => {
         className="relative h-[220px] w-full border rounded-lg overflow-hidden"
       >
         <div className="mb-1 inline-block text-sm sm:hidden">
-          might doesn&apos;t work on mobile
+          Doesn&apos;t work as well on mobile, sorry!
         </div>
         <div className="flex h-full overflow-y-scroll text-2xl p-3">
           Death Note (2006-2007) - IMDb - Death Note: Created by Tsugumi Ohba
