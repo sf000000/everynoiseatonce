@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 
-export const DistortedText = () => {
+const DistortedText = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
@@ -69,3 +69,5 @@ export const DistortedText = () => {
     </>
   );
 };
+
+export default DistortedText;
