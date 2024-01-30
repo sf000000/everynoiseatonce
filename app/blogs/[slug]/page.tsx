@@ -27,7 +27,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <main className="flex items-center justify-between w-full flex-col p-8 min-h-screen">
       <ScrollProgress />
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-3xl">
         <div className="flex items-center justify-between">
           <Link className="flex items-center gap-x-2" href="/">
             <ChevronLeftIcon className="w-4 h-4" />
