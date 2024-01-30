@@ -5,12 +5,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import InfoSection from "@/app/components/info-section";
 import Experience from "@/app/components/experience";
 import Projects from "@/app/components/projects";
-import LatestBlogs from "@/app/components/latest-blogs";
-import Music from "@/app/components/music";
-import BlogsList from "@/app/components/blogs-list";
+import LatestBlogs from "@/app/components/blog/latest-blogs";
+import Music from "@/app/components/music/music";
+import BlogsList from "@/app/components/blog/blogs-list";
+import DistortedText from "@/app/components/lab/distorted-text";
 
 import { motion } from "framer-motion";
-import { DistortedText } from "./components/lab/distorted-text";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -30,7 +30,7 @@ const itemVariants = {
 export default function Home() {
   return (
     <main className="flex items-center justify-between w-full flex-col p-8 min-h-screen">
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-4xl">
         <div>
           <InfoSection />
           <div className="border-b  w-full my-8"></div>
