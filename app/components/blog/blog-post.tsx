@@ -17,6 +17,7 @@ import { postProcess, preProcess } from "@/lib/rehype-pre-raw";
 import { InfiniteSlider } from "@/app/components/mdx/infinite-slider";
 import { Pre } from "@/app/components/mdx/pre";
 import { AnimatedTextGradientTW } from "@/app/components/mdx/animated-text-gradient";
+import SelectMenu from "@/app/components/mdx/select-menu";
 
 import { ExternalLink } from "lucide-react";
 
@@ -63,6 +64,9 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
 
   const custom = {
     pre: (props: any) => <Pre {...props} />,
+    blockquote: (props: any) => (
+      <blockquote className="border rounded-lg pl-4 py-2 my-4" {...props} />
+    ),
     a: (props: any) => (
       <a
         target="_blank"
@@ -82,7 +86,7 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="prose prose-neutral mx-auto min-w-full pb-12 dark:prose-dark prose-h1:text-xl prose-h1:font-medium prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-a:font-normal prose-figcaption:text-center prose-strong:font-semibold prose-img:mb-0 prose-video:mb-0 !prose-invert prose-code:bg-indigo-500/10 prose-code:rounded prose-code:px-0.5 prose-code:py-0.5 prose-code:text-indigo-500 prose-a:no-underline prose-a:text-indigo-500"
+        className="prose prose-neutral mx-auto min-w-full pb-12 dark:prose-dark prose-h1:text-xl prose-h1:font-medium prose-h2:text-lg prose-h2:font-medium prose-h3:text-base prose-h3:font-medium prose-a:font-normal prose-figcaption:text-center prose-strong:font-semibold prose-img:mb-0 prose-video:mb-0 !prose-invert prose-code:bg-indigo-500/10 prose-code:rounded prose-code:px-0.5 prose-code:py-0.5 prose-code:text-indigo-500 before:prose-code:content-none after:prose-code:content-none prose-code:px-2 prose-a:no-underline prose-a:text-indigo-500"
       >
         <div className="flex flex-col sm:flex-row items-center justify-between">
           <h1 className="text-2xl text-center sm:text-start font-semibold m-0">
@@ -96,6 +100,7 @@ export default function BlogPost({ slug, className, ...props }: BlogPostProps) {
           components={{
             InfiniteSlider,
             AnimatedTextGradientTW,
+            SelectMenu,
             ...custom,
           }}
           options={options}
