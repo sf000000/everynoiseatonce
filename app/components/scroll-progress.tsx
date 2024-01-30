@@ -14,7 +14,7 @@ const ScrollProgress = ({ className }: { className?: string }) => {
     >
       <motion.div
         style={{ scaleX: scrollYProgress }}
-        className="w-full h-1 max-w-3xl bg-white"
+        className="w-full h-1 max-w-4xl bg-white"
         initial={{ originX: 0.5 }}
       />
     </div>
