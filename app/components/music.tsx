@@ -135,12 +135,12 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
                         </span>
                       </div>
                     </div>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs hidden sm:block text-muted-foreground">
                       {track["@attr"]?.nowplaying && (
                         <Lyrics trackId={track.spotifyId} />
                       )}
                     </span>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs hidden sm:block  text-muted-foreground">
                       {track["@attr"]?.nowplaying ? (
                         <NowPlayingDots />
                       ) : (
