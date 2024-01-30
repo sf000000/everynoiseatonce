@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import axios from "axios";
 import Link from "next/link";
 
+import { truncate } from "@/lib/utils";
+
 export default function LatestBlogs({
   className,
   ...props
@@ -34,7 +36,7 @@ export default function LatestBlogs({
         {blogs.slice(0, 3).map((blog) => (
           <div className="flex items-center justify-between" key={blog.slug}>
             <Link
-              className="text-sm font-medium hover:underline"
+              className="text-sm font-medium hover:underline truncate w-2/3 sm:w-full"
               href={`/blogs/${blog.slug}`}
             >
               {blog.meta.title}

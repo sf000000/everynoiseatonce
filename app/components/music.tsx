@@ -8,11 +8,7 @@ import moment from "moment";
 import { Play, ExternalLink } from "lucide-react";
 import { FaLastfm } from "react-icons/fa6";
 
-import {
-  CardBody,
-  CardContainer,
-  CardItem,
-} from "@/app/components/three-d-card";
+import { CardBody, CardContainer, CardItem } from "@/components/three-d-card";
 import Lyrics from "@/app/components/lyrics";
 import NowPlayingDots from "@/components/now-playing-dots";
 import { MusicCardSkeleton } from "@/app/components/skeletons/music-card-skeleton";

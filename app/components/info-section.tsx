@@ -5,7 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ComponentProps, useState } from "react";
 import { FaGithub, FaXTwitter } from "react-icons/fa6";
-import OpenToWork from "@/app/components/open-to-work";
+import OpenToWork from "@/components/open-to-work";
 
 import { motion } from "framer-motion";
 
