@@ -9,9 +9,9 @@ export const MusicCardSkeleton = ({ className }: { className?: string }) => (
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-fuchsia-100/5 to-transparent animate-[shimmer_2s_infinite] before:absolute before:inset-0 before:-translate-x-full" />
       <CardItem
         translateZ="100"
-        className="w-full flex flex-col sm:flex-row items-center"
+        className="w-full flex flex-col gap-2 sm:flex-row items-center"
       >
-        <div className="h-40 w-40 object-cover bg-secondary/20 transition-opacity duration-300 rounded-xl group-hover/card:shadow-xl" />
+        <div className="h-40 w-40 bg-secondary/20 rounded-xl" />
         <div className="flex flex-col ml-4 gap-2">
           <div className="flex items-center gap-x-2">
             <div className="w-40 h-5 rounded bg-secondary/20" />
