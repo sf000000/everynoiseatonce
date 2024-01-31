@@ -1,8 +1,9 @@
 "use client";
 
-import React, { ComponentProps, useEffect, useState } from "react";
+import { ComponentProps, useEffect, useState } from "react";
+
 import axios from "axios";
-import { HoverEffect } from "@/components/card-hover-effect";
+
 import { cn } from "@/lib/utils";
 import { ProjectCard } from "@/app/components/project-card";
 
@@ -11,6 +12,7 @@ export interface Project {
   description: string;
   html_url: string;
   homepage: string;
+  fork: boolean;
 }
 
 export default function Projects({
@@ -25,7 +27,8 @@ export default function Projects({
         const response = await axios.get<Project[]>(
           "https://api.github.com/users/notjawad/repos"
         );
-        setProjects(response.data);
+        const userProjects = response.data.filter((project) => !project.fork);
+        setProjects(userProjects);
       } catch (error) {
         console.error(error);
       }
