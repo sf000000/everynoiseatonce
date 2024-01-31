@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "framer-motion";
 
 import InfoSection from "@/app/components/info-section";
 import Experience from "@/app/components/experience";
@@ -9,8 +9,8 @@ import LatestBlogs from "@/app/components/blog/latest-blogs";
 import Music from "@/app/components/music/music";
 import BlogsList from "@/app/components/blog/blogs-list";
 import DistortedText from "@/app/components/lab/distorted-text";
-
-import { motion } from "framer-motion";
+import SkillsSlider from "@/app/components/skills-slider";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -58,6 +58,9 @@ export default function Home() {
                 </motion.div>
                 <motion.div variants={itemVariants}>
                   <Experience />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <SkillsSlider />
                 </motion.div>
                 <motion.div variants={itemVariants}>
                   <Projects />
