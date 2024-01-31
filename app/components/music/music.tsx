@@ -14,7 +14,7 @@ import NowPlayingDots from "@/components/now-playing-dots";
 import { MusicCardSkeleton } from "@/app/components/skeletons/music-card-skeleton";
 
 import { cn, truncate } from "@/lib/utils";
-import { Profile, TopArtist, Track } from "@/interfaces";
+import { Profile, Track } from "@/interfaces";
 
 export default function Music({ className, ...props }: ComponentProps<"div">) {
   const [profile, setProfile] = useState<Profile>();
