@@ -39,7 +39,6 @@ export default function Music({ className, ...props }: ComponentProps<"div">) {
 
         setProfile(profileRes.data.user);
         setRecentTracks(recentTracksRes.data.tracks.recenttracks.track);
-        console.log(recentTracksRes.data.topArtists);
       } catch (error) {
         console.error("[fetchData]", error);
       } finally {
