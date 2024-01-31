@@ -130,8 +130,6 @@ export async function GET(req: NextRequest) {
       topArtists: artistResults,
     };
 
-    console.log(response);
-
     return NextResponse.json(response);
   } catch (error) {
     if (error instanceof Error) {
