@@ -16,20 +16,20 @@ import {
 } from "react-icons/si";
 
 const logos = [
-  <SiFigma className="text-white w-12 h-12" />,
-  <SiNextdotjs className="text-white w-12 h-12" />,
-  <SiNodedotjs className="text-white w-12 h-12" />,
-  <SiReact className="text-white w-12 h-12" />,
-  <SiTypescript className="text-white w-12 h-12" />,
-  <SiAmazonaws className="text-white w-12 h-12" />,
-  <SiTailwindcss className="text-white w-12 h-12" />,
-  <SiPrisma className="text-white w-12 h-12" />,
-  <SiSupabase className="text-white w-12 h-12" />,
-  <SiPostgresql className="text-white w-12 h-12" />,
-  <SiPython className="text-white w-12 h-12" />,
-  <SiDjango className="text-white w-12 h-12" />,
-  <SiFlask className="text-white w-12 h-12" />,
-  <SiSocketdotio className="text-white w-12 h-12" />,
+  <SiFigma key="figma" className="text-white w-12 h-12" />,
+  <SiNextdotjs key="nextjs" className="text-white w-12 h-12" />,
+  <SiNodedotjs key="nodejs" className="text-white w-12 h-12" />,
+  <SiReact key="react" className="text-white w-12 h-12" />,
+  <SiTypescript key="typescript" className="text-white w-12 h-12" />,
+  <SiAmazonaws key="aws" className="text-white w-12 h-12" />,
+  <SiTailwindcss key="tailwindcss" className="text-white w-12 h-12" />,
+  <SiPrisma key="prisma" className="text-white w-12 h-12" />,
+  <SiSupabase key="supabase" className="text-white w-12 h-12" />,
+  <SiPostgresql key="postgresql" className="text-white w-12 h-12" />,
+  <SiPython key="python" className="text-white w-12 h-12" />,
+  <SiDjango key="django" className="text-white w-12 h-12" />,
+  <SiFlask key="flask" className="text-white w-12 h-12" />,
+  <SiSocketdotio key="socketio" className="text-white w-12 h-12" />,
 ];
 
 const SkillsSlider = () => {
