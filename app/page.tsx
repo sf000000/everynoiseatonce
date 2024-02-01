@@ -10,6 +10,7 @@ import Music from "@/app/components/music/music";
 import BlogsList from "@/app/components/blog/blogs-list";
 import DistortedText from "@/app/components/lab/distorted-text";
 import SkillsSlider from "@/app/components/skills-slider";
+import TwitchChat from "@/app/components/lab/twitch-chat";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const containerVariants = {
@@ -93,6 +94,9 @@ export default function Home() {
               >
                 <motion.div variants={itemVariants}>
                   <DistortedText />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <TwitchChat />
                 </motion.div>
               </motion.div>
             </TabsContent>
