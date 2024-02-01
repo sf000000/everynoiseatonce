@@ -33,7 +33,7 @@ const DistortedText = () => {
         </div>
 
         <div
-          className="glassmorphism-effect pointer-events-none absolute left-1/2 top-1/2 z-10 flex h-full w-full -translate-x-1/2 -translate-y-1/2 transform backdrop-blur-0 will-change-transform"
+          className="pointer-events-none absolute left-1/2 top-1/2 z-10 flex h-full w-full -translate-x-1/2 -translate-y-1/2 transform backdrop-blur-0 will-change-transform"
           style={{
             filter: "url(#distord-text)",
           }}
