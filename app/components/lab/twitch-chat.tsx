@@ -24,8 +24,14 @@ const messages = [
     userColor: "text-blue-500",
     message: "Hello, World!",
     badges: [
-      <Sparkles className="text-yellow-500 bg-yellow-500/20 p-1 w-6 h-6 rounded" />,
-      <Heart className="fill-red-500 stroke-none bg-red-500/10 p-1 w-6 h-6 rounded" />,
+      <Sparkles
+        key="sparkles"
+        className="text-yellow-500 bg-yellow-500/20 p-1 w-6 h-6 rounded"
+      />,
+      <Heart
+        key="heart"
+        className="fill-red-500 stroke-none bg-red-500/10 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -33,7 +39,10 @@ const messages = [
     userColor: "text-green-500",
     message: "Hey there!",
     badges: [
-      <Star className="text-yellow-500 bg-yellow-500/20 p-1 w-6 h-6 rounded" />,
+      <Star
+        key="star"
+        className="text-yellow-500 bg-yellow-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -53,8 +62,14 @@ const messages = [
     userColor: "text-orange-500",
     message: "Coding is fun!",
     badges: [
-      <Code className="text-blue-500 bg-blue-500/20 p-1 w-6 h-6 rounded" />,
-      <Binary className="text-green-500 bg-green-500/20 p-1 w-6 h-6 rounded" />,
+      <Code
+        key="code"
+        className="text-blue-500 bg-blue-500/20 p-1 w-6 h-6 rounded"
+      />,
+      <Binary
+        key="binary"
+        className="text-green-500 bg-green-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -62,7 +77,10 @@ const messages = [
     userColor: "text-red-500",
     message: "I love creating beautiful designs!",
     badges: [
-      <Palette className="text-pink-500 bg-pink-500/20 p-1 w-6 h-6 rounded" />,
+      <Palette
+        key="palette"
+        className="text-pink-500 bg-pink-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -70,7 +88,10 @@ const messages = [
     userColor: "text-yellow-500",
     message: "🎵 Music is life!",
     badges: [
-      <Music className="text-green-500 bg-green-500/20 p-1 w-6 h-6 rounded" />,
+      <Music
+        key="music"
+        className="text-green-500 bg-green-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -78,7 +99,10 @@ const messages = [
     userColor: "text-blue-500",
     message: "Game on!",
     badges: [
-      <Swords className="text-purple-500 bg-purple-500/20 p-1 w-6 h-6 rounded" />,
+      <Swords
+        key="swords"
+        className="text-purple-500 bg-purple-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -104,7 +128,10 @@ const messages = [
     userColor: "text-red-500",
     message: "I had the most delicious meal today!",
     badges: [
-      <Utensils className="text-blue-500 bg-blue-500/20 p-1 w-6 h-6 rounded" />,
+      <Utensils
+        key="utensils"
+        className="text-blue-500 bg-blue-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -118,7 +145,10 @@ const messages = [
     userColor: "text-pink-500",
     message: "My dog is the cutest! 🐶❤️",
     badges: [
-      <Heart className="fill-red-500 stroke-none bg-red-500/10 p-1 w-6 h-6 rounded" />,
+      <Heart
+        key="heart1"
+        className="fill-red-500 stroke-none bg-red-500/10 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -126,7 +156,10 @@ const messages = [
     userColor: "text-purple-500",
     message: "Cats rule! 🐱",
     badges: [
-      <PawPrint className="text-green-500 bg-green-500/20 p-1 w-6 h-6 rounded" />,
+      <PawPrint
+        key="pawprint"
+        className="text-green-500 bg-green-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -140,7 +173,10 @@ const messages = [
     userColor: "text-red-500",
     message: "Just saw an amazing movie!",
     badges: [
-      <Film className="text-yellow-500 bg-yellow-500/20 p-1 w-6 h-6 rounded" />,
+      <Film
+        key="film"
+        className="text-yellow-500 bg-yellow-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -148,7 +184,10 @@ const messages = [
     userColor: "text-blue-500",
     message: "Science is fascinating!",
     badges: [
-      <FlaskConical className="text-purple-500 bg-purple-500/20 p-1 w-6 h-6 rounded" />,
+      <FlaskConical
+        key="flask"
+        className="text-purple-500 bg-purple-500/20 p-1 w-6 h-6 rounded"
+      />,
     ],
   },
   {
@@ -159,28 +198,6 @@ const messages = [
   },
 ];
 
-const topChatters = [
-  {
-    username: "goldbricki1",
-    messageCount: 10,
-  },
-  {
-    username: "user123",
-    messageCount: 8,
-  },
-  {
-    username: "chatlover55",
-    messageCount: 6,
-  },
-  {
-    username: "emoji_master",
-    messageCount: 5,
-  },
-  {
-    username: "coder123",
-    messageCount: 4,
-  },
-];
 interface Message {
   username: string;
   userColor: string;
