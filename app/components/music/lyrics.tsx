@@ -72,7 +72,7 @@ const Lyrics: React.FC<LyricsProps> = ({ trackId, className, ...props }) => {
           delay: 0.5,
         }}
       >
-        {currentLine}
+        ♪ {currentLine} ♪
       </motion.div>
     </div>
   );
