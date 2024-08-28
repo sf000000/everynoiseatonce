@@ -25,7 +25,7 @@ export default function Projects({
     async function fetchProjects() {
       try {
         const response = await axios.get<Project[]>(
-          "https://api.github.com/users/notjawad/repos"
+          "https://api.github.com/users/sf000000/repos"
         );
         const userProjects = response.data.filter((project) => !project.fork);
         setProjects(userProjects);
